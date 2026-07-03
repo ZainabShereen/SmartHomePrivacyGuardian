@@ -1,0 +1,480 @@
+/* =========================
+   GALAXY BACKGROUND
+========================= */
+
+body{
+    margin:0;
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
+
+    background:
+    radial-gradient(circle at 20% 20%, #4f46e5 0%, transparent 30%),
+    radial-gradient(circle at 80% 30%, #7c3aed 0%, transparent 25%),
+    radial-gradient(circle at 50% 80%, #06b6d4 0%, transparent 30%),
+    linear-gradient(135deg,#050816,#0b1120,#020617);
+
+    background-size:400% 400%;
+
+    animation:galaxy 15s ease infinite;
+}
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    width:600px;
+    height:600px;
+
+    top:-200px;
+    left:-150px;
+
+    background:radial-gradient(
+        circle,
+        rgba(139,92,246,.35),
+        transparent
+    );
+
+    filter:blur(100px);
+
+    animation:nebula1 12s ease-in-out infinite;
+}
+
+body::after{
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    bottom:-150px;
+    right:-150px;
+
+    background:radial-gradient(
+        circle,
+        rgba(0,255,255,.25),
+        transparent
+    );
+
+    filter:blur(100px);
+
+    animation:nebula2 15s ease-in-out infinite;
+}
+
+@keyframes nebula1{
+    50%{
+        transform:translate(100px,50px);
+    }
+}
+
+@keyframes nebula2{
+    50%{
+        transform:translate(-100px,-50px);
+    }
+}
+
+@keyframes galaxy{
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card{
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:none;
+
+    box-shadow:
+    0 0 30px rgba(139,92,246,.3);
+
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+/* Rotating Wave Border */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-50%;
+    left:-50%;
+
+    width:200%;
+    height:200%;
+
+    background:
+    conic-gradient(
+        transparent,
+        #00ffff,
+        transparent,
+        #8b5cf6,
+        transparent
+    );
+
+    animation:rotateWave 6s linear infinite;
+}
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:3px;
+
+    background:rgba(15,23,42,.95);
+
+    border-radius:22px;
+
+    z-index:1;
+}
+
+/* Card content above animation */
+
+.card *{
+    position:relative;
+    z-index:2;
+}
+
+@keyframes rotateWave{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* Floating Effect */
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+   TEXTAREA
+========================= */
+
+textarea{
+
+    background: rgba(255,255,255,0.08) !important;
+
+    backdrop-filter: blur(10px);
+
+    color: white !important;
+
+    border: 1px solid rgba(0,255,255,0.5) !important;
+
+    border-radius: 15px !important;
+
+    width: 100%;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+}
+
+textarea:focus{
+
+    background: rgba(255,255,255,0.12) !important;
+
+    color: white !important;
+
+    border: 1px solid #00ffff !important;
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 20px rgba(0,255,255,0.4);
+
+    outline: none;
+}
+
+textarea::placeholder{
+    color: #ffffff !important;
+    opacity: 0.7;
+}
+
+.form-control{
+
+    background: rgba(255,255,255,0.08) !important;
+
+    color: white !important;
+
+    border: 1px solid rgba(0,255,255,0.5) !important;
+}
+
+.form-control:focus{
+
+    background: rgba(255,255,255,0.12) !important;
+
+    color: white !important;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    background:linear-gradient(
+        45deg,
+        #06b6d4,
+        #8b5cf6
+    );
+
+    color:white;
+
+    cursor:pointer;
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+    transition:.3s;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+h1{
+
+    color:#00ffff;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+}
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    background:rgba(0,0,0,0.6);
+
+    border:1px solid #00ffff;
+
+    text-align:center;
+
+    color:white;
+}
+
+.result h4{
+    color:#00ffaa;
+}
+
+.result p{
+    color:white;
+}
+
+.result strong{
+    color:#00ffff;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a{
+
+    color:#00ffff;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+a:hover{
+    color:#8b5cf6;
+}
+
+/* =========================
+   PARTICLES BACKGROUND
+========================= */
+
+#particles-js{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    z-index:-1;
+}
+
+.stats-card{
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(0,255,255,0.3);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+.stats-card h5{
+    color: #cbd5e1;
+}
+
+.stats-card h2{
+
+    color: #00ffff;
+
+    font-size: 35px;
+
+    font-weight: bold;
+}
+
+.risk-box{
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,0,0,0.3);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-top: 20px;
+
+    margin-bottom: 50px;
+
+    backdrop-filter: blur(10px);
+}
+
+.risk-title{
+
+    color: #ffffff !important;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+}
+
+.progress{
+
+    height: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.1);
+}
+
+.ai-panel{
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(0,255,255,0.4);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,0.2);
+
+    color: white;
+}
+
+.ai-panel h4{
+
+    color: #00ffff;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px #00ffff;
+}
+
+.ai-panel p{
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
